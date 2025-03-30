@@ -13,9 +13,15 @@ public class Test {
     @BeforeAll
 
     public static void setUp() {
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--no-sandbox");
+        options.addArguments("--disable-dev-shm-usage");
+        options.addArguments("--remote-allow-origins=*");
+        options.addArguments("--disable-gpu");
+        options.addArguments("--headless"); // Si exécuté sur un serveur sans interface graphique
+        options.addArguments("--user-data-dir=/tmp/chrome-user-data"); // Répertoire temporaire
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
-        ChromeOptions options = new ChromeOptions();
         options.addArguments("--disable-save-password-bubble"); // Désactive la popup
         driver.get("http://www.automationpractice.pl/index.php?");
         driver.manage().window().maximize();
