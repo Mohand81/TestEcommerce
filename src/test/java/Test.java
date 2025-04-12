@@ -15,12 +15,12 @@ public class Test {
     public static void setUp() {
         WebDriverManager.chromedriver().setup();
         ChromeOptions options = new ChromeOptions();
-        //options.addArguments("--no-sandbox");
-       // options.addArguments("--disable-dev-shm-usage");
-       // options.addArguments("--remote-allow-origins=*");
-        //options.addArguments("--disable-gpu");
-        //options.addArguments("--headless"); // Si exécuté sur un serveur sans interface graphique
-        //options.addArguments("--user-data-dir=/tmp/chrome-user-data"); // Répertoire temporaire
+        options.addArguments("--no-sandbox");
+       options.addArguments("--disable-dev-shm-usage");
+       options.addArguments("--remote-allow-origins=*");
+        options.addArguments("--disable-gpu");
+        options.addArguments("--headless"); // Si exécuté sur un serveur sans interface graphique
+        options.addArguments("--user-data-dir=/tmp/chrome-user-data"); // Répertoire temporaire
         driver = new ChromeDriver(options);
         options.addArguments("--disable-save-password-bubble"); // Désactive la popup
         driver.get("http://www.automationpractice.pl/index.php?");
