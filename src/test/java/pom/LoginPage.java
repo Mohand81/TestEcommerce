@@ -15,7 +15,7 @@ public class LoginPage {
     @FindBy (id = "SubmitCreate")
     private WebElement CreateButton;
 
-    @FindBy (id = "email")
+    @FindBy (xpath= "//input[@id='email']")
     private WebElement EmailFieldLog;
 
     @FindBy (id = "passwd")
