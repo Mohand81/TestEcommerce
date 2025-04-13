@@ -5,6 +5,10 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 public class LoginPage {
 
@@ -28,10 +32,12 @@ public class LoginPage {
 
     WebDriver driver;
     Actions actions;
+    WebDriverWait wait;
 
     public LoginPage(WebDriver driver) {
         this.driver = driver;
         this.actions = new Actions(driver);
+        this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         PageFactory.initElements(driver, this);
     }
 
@@ -44,6 +50,7 @@ public class LoginPage {
     }
 
     public HomePage signIN (){
+        wait.until(ExpectedConditions.visibilityOf(EmailFieldLog));
         EmailFieldLog.click();
         EmailFieldLog.sendKeys("kiki@gmail.com");
         Paswwrd.click();
