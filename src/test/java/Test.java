@@ -78,13 +78,6 @@ public class Test {
     public void Test_005 ()  {
     LoginPage ObjLoginPage = new LoginPage(driver);
    ObjLoginPage.signIN();
-    try {
-        File screenshot = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-        Files.copy(screenshot.toPath(), Paths.get("screenshot.png"));
-    } catch (IOException ioException) {
-        ioException.printStackTrace();
-    }
-
 }
 
 

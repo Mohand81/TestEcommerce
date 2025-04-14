@@ -14,8 +14,13 @@ private WebElement VerifyText;
 @FindBy (xpath= "//td[@class='total_price_container text-right']")
 private WebElement TotalPrice;
 
-    @FindBy (xpath= "//a[@class='btn btn-default button button-medium']")
+    //@FindBy (xpath= "//a[@class='btn btn-default button button-medium']")
+    //private WebElement ChekoutBoutton;
+
+    @FindBy (css= "#center_column > p.cart_navigation.clearfix > a.button.btn.btn-default.standard-checkout.button-medium")
     private WebElement ChekoutBoutton;
+
+
 
     @FindBy (xpath = "//a[@class='button btn btn-default standard-checkout button-medium']")
     private WebElement ChekoutButton1;

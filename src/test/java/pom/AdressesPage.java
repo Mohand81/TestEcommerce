@@ -21,7 +21,10 @@ public class AdressesPage {
     @FindBy (id="postcode")
     private WebElement postcode;
 
-    @FindBy (id="id_country")
+    //@FindBy (id="id_country")
+    //private WebElement id_country;
+
+    @FindBy (xpath= "//select[@id='id_country']")
     private WebElement id_country;
 
     @FindBy (id="phone")

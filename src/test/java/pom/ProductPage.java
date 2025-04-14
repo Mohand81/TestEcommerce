@@ -9,7 +9,7 @@ import org.openqa.selenium.support.ui.Select;
 
 public class ProductPage {
 
-    @FindBy (xpath= "//select[@name='group_1']")
+    @FindBy (xpath= "//select[@id='group_1']")
     private WebElement TailleSelect;
 
     @FindBy (xpath = "//a[@title='Yellow']")
