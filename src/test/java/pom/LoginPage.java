@@ -22,7 +22,7 @@ public class LoginPage {
     @FindBy(css = "#newsletter-input")
     private WebElement EmailFieldLog;
 
-    @FindBy (id = "passwd")
+    @FindBy (css = "#passwd")
     private WebElement Paswwrd;
 
     @FindBy (id = "SubmitLogin")
