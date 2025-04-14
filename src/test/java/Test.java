@@ -1,10 +1,17 @@
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import pom.*;
+
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 
 public class Test {
 
@@ -17,6 +24,7 @@ public class Test {
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--no-sandbox");
         options.addArguments("--disable-dev-shm-usage");
+        options.addArguments("--window-size=1920,1080");
         options.addArguments("--remote-allow-origins=*");
          options.addArguments("--disable-gpu");
         options.addArguments("--headless"); // Si exécuté sur un serveur sans interface graphique
@@ -70,6 +78,13 @@ public class Test {
     public void Test_005 ()  {
     LoginPage ObjLoginPage = new LoginPage(driver);
    ObjLoginPage.signIN();
+    try {
+        File screenshot = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+        Files.copy(screenshot.toPath(), Paths.get("screenshot.png"));
+    } catch (IOException ioException) {
+        ioException.printStackTrace();
+    }
+
 }
 
 
